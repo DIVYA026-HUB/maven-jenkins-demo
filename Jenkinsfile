@@ -8,25 +8,25 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/DIVYA026-HUB/maven-jenkins-demo.git'
+                git branch: 'main', url: 'https://github.com/DIVYA026-HUB/maven-jenkins-demo.git'
             }
         }
 
         stage('Build') {
             steps {
-                bat 'mvn clean compile'
+                sh 'mvn clean compile'
             }
         }
 
         stage('Test') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
 
         stage('Package') {
             steps {
-                bat 'mvn package'
+                sh 'mvn package'
             }
         }
     }
